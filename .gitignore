@@ -1,0 +1,11 @@
+/wp-content/uploads
+/.idea
+/wp-content/cache
+/wp-content/wp-rocket-config
+/wp-content/advanced-cache.php
+wp-content/updraft/
+*.zip
+
+*.env
+.htaccess
+*.webp

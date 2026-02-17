@@ -1,0 +1,192 @@
+/* WP Booking System styles
+----------------------------------------------------------------- */
+
+@import "../../../../css/_mixins.scss";
+@import "../../../../css/_theme-vars.scss";
+@import "../../css/_skin-vars.scss";
+
+.wpbs-calendars-wrapper.wpbs-legend-position-side {
+  max-width: unset !important;
+}
+.wpbs-container {
+  &[data-columns] .wpbs-calendars .wpbs-calendar {
+    max-width: unset !important;
+  }
+  .wpbs-calendars {
+    .wpbs-calendar-wrapper {
+      padding: 0;
+    }
+    .wpbs-calendar {
+      border-color: var(--theme-color-alter_bg_hover);
+      background-color: var(--theme-color-alter_bg_hover);
+      table thead tr th {
+        padding-bottom: 0 !important;
+      }
+      table tr td {
+        > div.wpbs-is-bookable.wpbs-date-selected .wpbs-date-inner .wpbs-date-number,
+        > div.wpbs-is-bookable.wpbs-date-hover .wpbs-date-inner .wpbs-date-number,
+        &:hover > div.wpbs-is-bookable .wpbs-date-inner .wpbs-date-number,
+        > div.wpbs-is-bookable:hover .wpbs-date-inner .wpbs-date-number {
+          color: var(--theme-color-inverse_link);
+        }
+        .wpbs-date-inner .wpbs-date-number {
+          transition: all 0.3s ease;
+        }
+        .wpbs-date.wpbs-gap {
+          background-color: var(--theme-color-bg_color);
+        }
+      }
+
+      .wpbs-calendar-header {
+        color: var(--theme-color-alter_bg_color);
+        background-color: var(--theme-color-text_dark);
+        padding: 15px 25px;
+        .wpbs-select-container {
+          select {
+            font-family: var(--theme-font-h5_font-family);
+            font-size: var(--theme-font-p_font-size);
+            font-weight: var(--theme-font-h5_font-weight);
+            border: none;
+            text-align: center;
+            color: var(--theme-color-bg_color);
+            height: auto;
+            vertical-align: middle;
+            padding: 0 20px !important;
+            width: auto;
+          }
+          .select_container {
+            width: auto !important;
+            display: inline-block;
+
+            &:after {
+              color: var(--theme-color-bg_color);
+              font-size: 20px;
+            }
+          }
+        }
+        .wpbs-calendar-header-navigation {
+          .wpbs-next,
+          .wpbs-prev {
+            background-color: transparent;
+            .wpbs-arrow {
+              border: none;
+              margin: 0;
+              left: 0;
+              top: 0;
+              right: 0;
+              display: inline;
+              width: auto;
+              height: auto;
+              &:before {
+                content: '';
+                position: relative;
+                font-family: $theme_icons;
+              }
+            }
+          }
+          .wpbs-prev {
+            color: var(--theme-color-bg_color);
+            .wpbs-arrow {
+              text-align: left;
+              &:before {
+                content: '\EA07';
+              }
+            }
+          }
+          .wpbs-next {
+            color: var(--theme-color-bg_color);
+            .wpbs-arrow {
+              text-align: right;
+              &:before {
+                content: '\E9DF';
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .wpbs-legend {
+    background-color: var(--theme-color-alter_bg_hover);
+    border-color: var(--theme-color-alter_bg_hover);
+  }
+}
+
+.wpbs-main-wrapper .wpbs-form-container {
+  padding-bottom: 0;
+  .wpbs-form-field-label {
+    color: var(--theme-color-text_dark);
+    margin-bottom: 5px;
+  }
+  .wpbs-form-field-description {
+    color: var(--theme-color-text_light);
+  }
+  .wpbs-form-submit-button {
+    padding-bottom: 0;
+  }
+  .wpbs-form-field.wpbs-form-field-checkbox .wpbs-form-field-input label,
+  .wpbs-form-field.wpbs-form-field-radio .wpbs-form-field-input label {
+    position: relative;
+    font-size: 14px;
+    padding-left: 1.8em;
+    line-height: 22px;
+    display: inline-block;
+    vertical-align: top;
+
+    input {
+      clip: rect(1px, 1px, 1px, 1px);
+      position: absolute !important;
+      margin: 0 !important;
+      padding: 0 !important;
+
+      &:checked ~ span:after {
+        content: '\e9f6';
+      }
+    }
+
+    span {
+      @include border-box;
+      display: block;
+      text-align: center;
+      border: 1px solid var(--theme-color-bd_color);
+      @include box(16px, 16px, 15px);
+      @include abs-lt(0, 0.19em);
+      @include border-box;
+      @include border-radius(4px);
+      cursor: pointer;
+      @include transition-all(0.3s);
+
+      &:after {
+        content: ' ';
+        font-family: $theme_icons;
+        font-size: 7px;
+        letter-spacing: 0;
+        color: var(--theme-color-text_dark);
+        display: block;
+      }
+    }
+
+    &:hover span,
+    &:hover span {
+      border-color: var(--theme-color-text_dark);
+    }
+  }
+  .wpbs-form-field.wpbs-form-field-radio .wpbs-form-field-input label {
+    input {
+      clip: rect(1px, 1px, 1px, 1px);
+      position: absolute !important;
+      margin: 0 !important;
+      padding: 0 !important;
+
+      &:checked ~ span:after {
+        font-size: 30px;
+        content: '\E83C';
+      }
+    }
+    span {
+      border-radius: 50%;
+      height: 16px;
+      line-height: 15px;
+    }
+  }
+}
